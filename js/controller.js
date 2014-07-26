@@ -1,18 +1,11 @@
 angular.module('ek.controllers', [])
     .controller('deckController', ['$scope',
        function($scope) {
-
-           $scope.card1 = { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" };
-           $scope.card2 = { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" };
-           $scope.card3 = { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" };
-           $scope.card4 = { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" };
-           $scope.card5 = { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" };
-
             $scope.deck = [
-                { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra", css:"taiga_general" },
-                { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra", css:"taiga_general" },
-                { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra", css:"taiga_general" },
-                { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra", css:"taiga_general" },
+                { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" },
+                { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" },
+                { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" },
+                { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" },
                 { name: 'Dharmanian', image: 'css/cards/dharmanian.jpg', type:"Tundra" },
                 { name: 'Moss Dragon', image: 'css/cards/moss_dragon.jpg', type:"Forest" },
                 { name: 'Lava Destroyer', image: 'css/cards/lava_destroyer.jpg', type:"Mountain" },
@@ -47,8 +40,8 @@ angular.module('ek.controllers', [])
                 return $scope.Filter.indexOf(card.type) > -1
             };
 
-            $scope.addToDeck = function(idx) {
-                var card = $scope.available[idx];
+            $scope.addToDeck = function(card) {
+                var idx = getIndexOfCard($scope.available, card);
 
                 for(var i = 0; i < $scope.deck.length; ++i) {
                     if($scope.deck[i].name == null) {
