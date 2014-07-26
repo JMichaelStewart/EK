@@ -1,0 +1,18 @@
+<div ng-controller="deckController">
+    <div class="row" ng-repeat="row in deck | partition:5">
+        <span ng-repeat="card in row" >
+            <img class="card-deck col-md=2" src="{{card.image}}" alt="{{card.name}}" />
+        </span>
+    </div>
+
+    <div class="available-cards">
+        <label>Search:</label><input type="text" ng-model="search" />
+        <input style="width:200px" type="hidden" ui-select2="select2Options" ng-model="Filter" />
+
+        <br />
+
+        <span ng-repeat="card in available | filter: search | filter: showType">
+            <img class="card" src="{{card.image}}" alt="{{card.name}}" />
+        </span>
+    </div>
+</div>

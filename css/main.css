@@ -1,0 +1,19 @@
+.card-deck {
+    height: 100px;
+    width: 125px;
+}
+
+.card {
+    display: inline;
+    height: 100px;
+    width: 125px;
+}
+
+.available-cards {
+    border: solid;
+    border-color: black;
+};
+
+.taiga_general {
+    background-image: 'css/cards/taiga_general.jpg'
+}

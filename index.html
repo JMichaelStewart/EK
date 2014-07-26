@@ -1,8 +1,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css">
-        
         <link rel="stylesheet" href="css/select2.css" />
+        <link rel="stylesheet" href="css/main.css" />
         
         <script src="js/thirdparty/jquery-2.1.1.min.js"></script>
         
@@ -11,120 +11,50 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
         <script src="js/thirdparty/select2.js"></script>
+
         
-        <script type="application/javascript">
-            angular.module('ek', ['ui.select2'])
-                .controller('deckController', ['$scope', function($scope) {
-                    $scope.deck = [
-                          { name: 'Taiga General', image: 'images/taiga_general.jpg' },
-                          { name: 'Taiga General', image: 'images/taiga_general.jpg' },
-                          { name: 'Taiga General', image: 'images/taiga_general.jpg' },
-                          { name: 'Taiga General', image: 'images/taiga_general.jpg' },
-                          { name: 'Dharmanian', image: 'images/dharmanian.jpg' },
-                          { name: 'Moss Dragon', image: 'images/moss_dragon.jpg' },
-                          { name: 'Lava Destroyer', image: 'images/lava_destroyer.jpg' },
-                          { name: 'Fire Kirin', image: 'images/fire_kirin.jpg' },
-                          { name: 'Celestial Touchstone', image: 'images/Celestial_Touchstone.jpg' },
-                          { name: 'Armored Sumatran', image: 'images/Armored_Sumatran.jpg' },
-                      ];
-                        
-                    $scope.available = [
-                        { name: 'Armored Sumatran', image: 'images/armored_sumatran.jpg', type: 'Forest' },
-                        { name: 'Moss Dragon', image: 'images/moss_dragon.jpg', type: 'Forest'  },
-                        { name: 'Dire Snapping Turtle', image: 'images/dire_snapping_turtle.jpg', type: 'Mountain'  },
-                        { name: 'Dire Snapping Turtle', image: 'images/dire_snapping_turtle.jpg', type: 'Mountain'  },
-                        { name: 'Giant Mud Larva', image: 'images/Giant_Mud_Larva.jpg', type: 'Swamp'  },
-                        { name: 'Fire Demon', image: 'images/fire_demon.jpg', type: 'Mountain'  },
-                        { name: 'Fire Demon', image: 'images/fire_demon.jpg', type: 'Mountain' },
-                        { name: 'Fire Demon', image: 'images/fire_demon.jpg', type: 'Mountain' },
-                        { name: 'Fire Demon', image: 'images/fire_demon.jpg', type: 'Mountain' },
-                        { name: 'Night Elf Ranger', image: 'images/night_elf_ranger.jpg', type: 'Forest' },
-                        { name: 'Night Elf Ranger', image: 'images/night_elf_ranger.jpg', type: 'Forest' }
-                    ];
-                
-                    $scope.Filter = [];
-                
-                    $scope.select2Options = {
-                        'multiple': true,
-                        'simple_tags': true,
-                        'tags': ['Mountain', 'Swamp', 'Tundra', 'Forest']
-                    };
-                
-                    $scope.showType = function(card) {
-                        return $scope.Filter.indexOf(card.type) > -1
-                    };
-                }]);
-            
-            angular.module('ek').filter('partition', function() {
-                var cache = {};
-                var filter = function(arr, size) {
-                    if (!arr) { return; }
-                    var newArr = [];
-                    for (var i=0; i<arr.length; i+=size) {
-                      newArr.push(arr.slice(i, i+size));
-                    }
-                    var arrString = JSON.stringify(arr);
-                    var fromCache = cache[arrString+size];
-                    if (JSON.stringify(fromCache) === JSON.stringify(newArr)) {
-                      return fromCache;
-                    }
-                    cache[arrString+size] = newArr;
-                    return newArr;
-                };
-                return filter;
-            });
-        </script>
-        
-        <style>
-            .card-deck {
-                height: 100px;
-                width: 125px;
-            }
-            
-            .card {
-                display: inline;
-                height: 100px;
-                width: 125px;
-            }
-            
-            .available-cards {
-                overflow: scroll;
-                width: 1000px;
-                height: 220px;
-                white-space: nowrap;
-            };
-            
-        </style>
+        <script type="application/javascript" src="js/app.js" ></script>
+        <script type="application/javascript" src="js/filter.js" ></script>
+        <script type="application/javascript" src="js/controller.js" ></script>
+
     </head>
     <body ng-app="ek">
         <div ng-controller="deckController">
+            <div>
+                <img ng-click="removeFromDeck(0)" class="card-deck col-md=2" ng-src="{{card1.image}}" alt="{{deck[0].name}}" />
+                <img ng-click="removeFromDeck(1)" class="card-deck col-md=2" ng-src="{{card2.image}}" alt="{{deck[1].name}}" />
+                <img ng-click="removeFromDeck(2)" class="card-deck col-md=2" ng-src="{{card3.image}}" alt="{{deck[2].name}}" />
+                <img ng-click="removeFromDeck(3)" class="card-deck col-md=2" ng-src="{{card4.image}}" alt="{{deck[3].name}}" />
+                <img ng-click="removeFromDeck(4)" class="card-deck col-md=2" ng-src="{{card5.image}}" alt="{{deck[4].name}}" />
+            </div>
+
+            <div>
+                <img ng-click="removeFromDeck(5)" class="card-deck col-md=2" ng-src="{{deck[5].image}}" alt="{{deck[5].name}}" />
+                <img ng-click="removeFromDeck(6)" class="card-deck col-md=2" ng-src="{{deck[6].image}}" alt="{{deck[6].name}}" />
+                <img ng-click="removeFromDeck(7)" class="card-deck col-md=2" ng-src="{{deck[7].image}}" alt="{{deck[7].name}}" />
+                <img ng-click="removeFromDeck(8)" class="card-deck col-md=2" ng-src="{{deck[8].image}}" alt="{{deck[8].name}}" />
+                <img ng-click="removeFromDeck(9)" class="card-deck col-md=2" ng-src="{{deck[9].image}}" alt="{{deck[9].name}}" />
+            </div>
+
+            <!--
             <div class="row" ng-repeat="row in deck | partition:5">
                 <span ng-repeat="card in row" >
-                    <img class="card-deck col-md=2" src="{{card.image}}" alt="{{card.name}}" />
+                    <img ng-click="removeFromDeck($index)" class="card-deck col-md=2" ng-src="{{card.image}}" alt="{{card.name}}" />
                 </span>
             </div>
+            -->
             
             <div class="available-cards">
                 <label>Search:</label><input type="text" ng-model="search" /> 
                 <input style="width:200px" type="hidden" ui-select2="select2Options" ng-model="Filter" />
-                <!--
-                <select style="width: 300px;" multiple ui-select2 ng-model="Filter" >
-                    <option value=""></option>
-                    <option value="Mountain">Mountain</option>
-                    <option value="Tundra">Tundra</option>
-                    <option value="Swamp">Swamp</option>
-                    <option value="Forest">Forest</option>
-                </select>
-                -->
+
                 <br />
-                    
+
                 <span ng-repeat="card in available | filter: search | filter: showType">
-                    <img class="card" src="{{card.image}}" alt="{{card.name}}" />
+                    <img ng-click="addToDeck($index)" class="card" ng-src="{{card.image}}" alt="{{card.name}}" />
                 </span>
             </div>
         </div>
-        
-        
     </body>
 </html>
 
