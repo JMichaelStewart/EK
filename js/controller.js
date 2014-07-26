@@ -10,8 +10,8 @@ angular.module('ek.controllers', [])
                 { name: 'Moss Dragon', image: 'css/cards/moss_dragon.jpg', type:"Forest" },
                 { name: 'Lava Destroyer', image: 'css/cards/lava_destroyer.jpg', type:"Mountain" },
                 { name: 'Fire Kirin', image: 'css/cards/fire_kirin.jpg', type:"Forest" },
-                { name: 'Celestial Touchstone', image: 'css/cards/Celestial_Touchstone.jpg', type:"Forest" },
-                { name: 'Armored Sumatran', image: 'css/cards/Armored_Sumatran.jpg', type:"Forest" },
+                { name: 'Celestial Touchstone', image: 'css/cards/celestial_touchstone.jpg', type:"Forest" },
+                { name: 'Armored Sumatran', image: 'css/cards/armored_sumatran.jpg', type:"Forest" },
             ];
 
             $scope.available = [
@@ -19,7 +19,7 @@ angular.module('ek.controllers', [])
                 { name: 'Moss Dragon', image: 'css/cards/moss_dragon.jpg', type: 'Forest'  },
                 { name: 'Dire Snapping Turtle', image: 'css/cards/dire_snapping_turtle.jpg', type: 'Mountain'  },
                 { name: 'Dire Snapping Turtle', image: 'css/cards/dire_snapping_turtle.jpg', type: 'Mountain'  },
-                { name: 'Giant Mud Larva', image: 'css/cards/Giant_Mud_Larva.jpg', type: 'Swamp'  },
+                { name: 'Giant Mud Larva', image: 'css/cards/giant_mud_larva.jpg', type: 'Swamp'  },
                 { name: 'Fire Demon', image: 'css/cards/fire_demon.jpg', type: 'Mountain'  },
                 { name: 'Fire Demon', image: 'css/cards/fire_demon.jpg', type: 'Mountain' },
                 { name: 'Fire Demon', image: 'css/cards/fire_demon.jpg', type: 'Mountain' },
