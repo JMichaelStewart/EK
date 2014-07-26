@@ -46,8 +46,15 @@
             
             <div class="available-cards">
                 <label>Search:</label><input type="text" ng-model="search" /> 
-                <input style="width:200px" type="hidden" ui-select2="select2Options" ng-model="Filter" />
 
+                <label>Forest</label><input type="checkbox" ng-click="addFilter('Forest')" ng-checked="isOn('Forest')" />
+                <label>Mountain</label><input type="checkbox" ng-click="addFilter('Mountain')" ng-checked="isOn('Mountain')" />
+                <label>Swamp</label><input type="checkbox" ng-click="addFilter('Swamp')" ng-checked="isOn('Swamp')" />
+                <label>Tundra</label><input type="checkbox" ng-click="addFilter('Tundra')" ng-checked="isOn('Tundra')" />
+
+                <!--
+                <input style="width:200px" type="hidden" ui-select2="select2Options" ng-model="Filter" />
+                -->
                 <br />
 
                 <span ng-repeat="card in available | filter: search | filter: showType track by $index">

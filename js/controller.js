@@ -40,6 +40,19 @@ angular.module('ek.controllers', [])
                 return $scope.Filter.indexOf(card.type) > -1
             };
 
+            $scope.isOn = function(type) {
+                return $scope.Filter.indexOf(type) != -1;
+            };
+
+            $scope.addFilter = function(type) {
+                var idx = $scope.Filter.indexOf(type);
+                if(idx != -1) {
+                    $scope.Filter.splice(idx, 1);
+                } else {
+                    $scope.Filter.push(type);
+                }
+            };
+
             $scope.addToDeck = function(card) {
                 var idx = getIndexOfCard($scope.available, card);
 
