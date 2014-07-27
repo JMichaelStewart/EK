@@ -1,7 +1,9 @@
 angular.module('ek.controllers', [])
     .controller('deckController', ['$scope', '$timeout',
        function($scope, $timeout) {
-            $scope.deck = [
+           $scope.deck = {};
+
+           $scope.deck.cards = [
                 { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" },
                 { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" },
                 { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" },
@@ -12,6 +14,13 @@ angular.module('ek.controllers', [])
                 { name: 'Fire Kirin', image: 'css/cards/fire_kirin.jpg', type:"Forest" },
                 { name: 'Celestial Touchstone', image: 'css/cards/celestial_touchstone.jpg', type:"Forest" },
                 { name: 'Armored Sumatran', image: 'css/cards/armored_sumatran.jpg', type:"Forest" },
+            ];
+
+            $scope.deck.runes = [
+               { name: 'Blizard', image: 'css/runes/blizzard.jpg', type: 'Water'},
+               { name: 'Blizard', image: 'css/runes/blizzard.jpg', type: 'Water'},
+               { name: 'Blizard', image: 'css/runes/blizzard.jpg', type: 'Water'},
+               { name: 'Blizard', image: 'css/runes/blizzard.jpg', type: 'Water'}
             ];
 
             $scope.available = [
