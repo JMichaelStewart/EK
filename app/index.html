@@ -25,12 +25,12 @@
             <!-- runes placeholder -->
             <div style="float: left; height: 200px; background-color: black;">
                 <div>
-                    <img class="deck-rune col-md=2" ng-src="{{deck.runes[0].image}}" alt="Blizzard" />
-                    <img class="deck-rune col-md=2" ng-src="{{deck.runes[1].image}}" alt="Blizzard" />
+                    <img ng-click="removeRuneFromDeck(0)" class="deck-rune col-md=2" ng-src="{{deck.runes[0].image}}" alt="Blizzard" />
+                    <img ng-click="removeRuneFromDeck(1)" class="deck-rune col-md=2" ng-src="{{deck.runes[1].image}}" alt="Blizzard" />
                 </div>
                 <div>
-                    <img class="deck-rune col-md=2" ng-src="{{deck.runes[2].image}}" alt="Blizzard" />
-                    <img class="deck-rune col-md=2" ng-src="{{deck.runes[3].image}}" alt="Blizzard" />
+                    <img ng-click="removeRuneFromDeck(2)" class="deck-rune col-md=2" ng-src="{{deck.runes[2].image}}" alt="Blizzard" />
+                    <img ng-click="removeRuneFromDeck(3)" class="deck-rune col-md=2" ng-src="{{deck.runes[3].image}}" alt="Blizzard" />
                 </div>
             </div>
             <div style="clear; width: 735px; background-color: black;">
@@ -69,6 +69,24 @@
                 <div style="border: solid; overflow-x: scroll; overflow-y: hidden;" class="no-wrap">
                     <span ng-repeat="card in available | filter: search | filter: showType track by $index">
                         <img ng-click="addToDeck(card)" class="card" ng-src="{{card.image}}" alt="{{card.name}}" />
+                    </span>
+                </div>
+            </div>
+
+            <div class="available-runes">
+                <b>Available Runes:</b> <br />
+                <label>Search:</label><input type="text" ng-model="searchRune" />
+
+                <label>Water</label><input type="checkbox" ng-click="addRuneFilter('Water')" ng-checked="isOn('Water')" />
+                <label>Air</label><input type="checkbox" ng-click="addRuneFilter('Air')" ng-checked="isOn('Air')" />
+                <label>Fire</label><input type="checkbox" ng-click="addRuneFilter('Fire')" ng-checked="isOn('Fire')" />
+                <label>Earth</label><input type="checkbox" ng-click="addRuneFilter('Earth')" ng-checked="isOn('Earth')" />
+
+                <br />
+
+                <div style="border: solid; overflow-x: scroll; overflow-y: hidden;" class="no-wrap">
+                    <span ng-repeat="rune in availableRunes | filter: searchRune | filter: showRuneType track by $index">
+                        <img ng-click="addRuneToDeck(rune)" class="rune" ng-src="{{rune.image}}" alt="{{rune.name}}" />
                     </span>
                 </div>
             </div>

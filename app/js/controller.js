@@ -18,9 +18,9 @@ angular.module('ek.controllers', [])
 
             $scope.deck.runes = [
                { name: 'Blizard', image: 'css/runes/blizzard.jpg', type: 'Water'},
-               { name: 'Blizard', image: 'css/runes/blizzard.jpg', type: 'Water'},
-               { name: 'Blizard', image: 'css/runes/blizzard.jpg', type: 'Water'},
-               { name: 'Blizard', image: 'css/runes/blizzard.jpg', type: 'Water'}
+               { name: 'Blizard', image: 'css/runes/arctic_freeze.jpg', type: 'Water'},
+               { name: 'Blizard', image: 'css/runes/lightning.jpg', type: 'Air'},
+               { name: 'Blizard', image: 'css/runes/permafrost.jpg', type: 'Water'}
             ];
 
             $scope.available = [
@@ -37,7 +37,10 @@ angular.module('ek.controllers', [])
                 { name: 'Night Elf Ranger', image: 'css/cards/night_elf_ranger.jpg', type: 'Forest' }
             ];
 
+            $scope.availableRunes = [];
+
             $scope.Filter = []; //['Mountain', 'Tundra', 'Swamp', 'Forest'];
+            $scope.runeFilter = []; //['Air', 'Water', 'Fire', 'Earth'];
 
             $scope.select2Options = {
                 'multiple': true,
@@ -49,8 +52,12 @@ angular.module('ek.controllers', [])
                 return $scope.Filter.indexOf(card.type) > -1 || $scope.Filter.length == 0;
             };
 
+            $scope.showRuneType = function(rune) {
+                return $scope.runeFilter.indexOf(rune.type) > -1 || $scope.runeFilter.length == 0;
+            };
+
             $scope.isOn = function(type) {
-                return $scope.Filter.indexOf(type) != -1;
+                return $scope.Filter.indexOf(type) != -1 || $scope.runeFilter.indexOf(type) != -1;
             };
 
             $scope.addFilter = function(type) {
@@ -62,12 +69,21 @@ angular.module('ek.controllers', [])
                 }
             };
 
+            $scope.addRuneFilter = function(type) {
+                var idx = $scope.runeFilter.indexOf(type);
+                if(idx != -1) {
+                    $scope.runeFilter.splice(idx, 1);
+                } else {
+                    $scope.runeFilter.push(type);
+                }
+            };
+
             $scope.addToDeck = function(card) {
                 var idx = getIndexOfCard($scope.available, card);
 
-                for(var i = 0; i < $scope.deck.length; ++i) {
-                    if($scope.deck[i].name == null) {
-                        $scope.deck[i] = card;
+                for(var i = 0; i < $scope.deck.cards.length; ++i) {
+                    if($scope.deck.cards[i].name == null) {
+                        $scope.deck.cards[i] = card;
                         $scope.available.splice(idx, 1);
                         return;
                     }
@@ -76,10 +92,10 @@ angular.module('ek.controllers', [])
 
             $scope.removeFromDeck = function(idx) {
                 //now add it to the available card list
-                $scope.available.push($scope.deck[idx]);
+                $scope.available.push($scope.deck.cards[idx]);
 
                 //remove from deck
-                var card = $scope.deck[idx] = { name: null, image: 'css/cards/blank.jpg' };
+                var card = $scope.deck.cards[idx] = { name: null, image: 'css/cards/blank.jpg' };
             };
 
             function getIndexOfCard(list, item) {
@@ -91,7 +107,23 @@ angular.module('ek.controllers', [])
                 return -1;
             };
 
-            $timeout(function() {
-                window.scrollTo(0, 1);
-            }, 0);
+            $scope.addRuneToDeck = function(rune) {
+                var idx = getIndexOfCard($scope.availableRunes, rune);
+
+                for(var i = 0; i < $scope.deck.runes.length; ++i) {
+                    if($scope.deck.runes[i].name == null) {
+                        $scope.deck.runes[i] = rune;
+                        $scope.availableRunes.splice(idx, 1);
+                        return;
+                    }
+                }
+            };
+
+            $scope.removeRuneFromDeck = function(idx) {
+                //now add it to the available card list
+                $scope.availableRunes.push($scope.deck.runes[idx]);
+
+                //remove from deck
+                var card = $scope.deck.runes[idx] = { name: null, image: 'css/runes/blank.jpg' };
+            };
         }]);
