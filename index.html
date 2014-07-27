@@ -42,9 +42,9 @@
                 </span>
             </div>
             -->
-            
-            <!--
+
             <div class="available-cards">
+                <b>Available Cards:</b> <br />
                 <label>Search:</label><input type="text" ng-model="search" /> 
 
                 <label>Forest</label><input type="checkbox" ng-click="addFilter('Forest')" ng-checked="isOn('Forest')" />
@@ -54,11 +54,13 @@
 
                 <br />
 
-                <span ng-repeat="card in available | filter: search | filter: showType track by $index">
-                    <img ng-click="addToDeck(card)" class="card" ng-src="{{card.image}}" alt="{{card.name}}" />
-                </span>
+                <div style="border: solid; overflow-x: scroll; overflow-y: hidden;" class="no-wrap">
+                    <span ng-repeat="card in available | filter: search | filter: showType track by $index">
+                        <img ng-click="addToDeck(card)" class="card" ng-src="{{card.image}}" alt="{{card.name}}" />
+                    </span>
+                </div>
             </div>
-            -->
+
         </div>
     </body>
 </html>

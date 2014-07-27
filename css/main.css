@@ -7,12 +7,14 @@
     display: inline;
     height: 100px;
     width: 125px;
+    padding: 5px;
 }
 
+/*
 .available-cards {
     border: solid;
     border-color: black;
-};
+}*/
 
 .taiga_general {
     background-image: 'css/cards/taiga_general.jpg'
