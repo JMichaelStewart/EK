@@ -81,4 +81,8 @@ angular.module('ek.controllers', [])
                 }
                 return -1;
             };
+
+            $timeout(function() {
+                window.scrollTo(0, 1);
+            }, 0);
         }]);
