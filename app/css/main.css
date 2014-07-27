@@ -1,17 +1,18 @@
 .card-deck {
     height: 100px;
-    width: 125px;
+    width: 75px;
 }
 
 .deck-rune {
     width: 50px;
-    heigh: 50px;
+    height: 50px;
+
 }
 
 .card {
     display: inline;
     height: 100px;
-    width: 125px;
+    width: 75px;
     padding: 5px;
 }
 
@@ -51,3 +52,13 @@
           transform: rotate(0deg);
          }
  }*/
+
+.available-cards {
+    width: 525px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

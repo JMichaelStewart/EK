@@ -70,7 +70,7 @@ angular.module('ek.controllers', [])
                 $scope.available.push($scope.deck[idx]);
 
                 //remove from deck
-                var card = $scope.deck[idx] = { name: null, image: 'nothing.png' };
+                var card = $scope.deck[idx] = { name: null, image: 'css/cards/blank.jpg' };
             };
 
             function getIndexOfCard(list, item) {
