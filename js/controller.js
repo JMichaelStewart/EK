@@ -1,6 +1,6 @@
 angular.module('ek.controllers', [])
-    .controller('deckController', ['$scope',
-       function($scope) {
+    .controller('deckController', ['$scope', '$timeout',
+       function($scope, $timeout) {
             $scope.deck = [
                 { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" },
                 { name: 'Taiga General', image: 'css/cards/taiga_general.jpg', type:"Tundra" },
