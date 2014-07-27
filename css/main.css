@@ -3,6 +3,11 @@
     width: 125px;
 }
 
+.deck-rune {
+    width: 50px;
+    heigh: 50px;
+}
+
 .card {
     display: inline;
     height: 100px;
