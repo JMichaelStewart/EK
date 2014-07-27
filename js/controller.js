@@ -28,7 +28,7 @@ angular.module('ek.controllers', [])
                 { name: 'Night Elf Ranger', image: 'css/cards/night_elf_ranger.jpg', type: 'Forest' }
             ];
 
-            $scope.Filter = ['Mountain', 'Tundra', 'Swamp', 'Forest'];
+            $scope.Filter = []; //['Mountain', 'Tundra', 'Swamp', 'Forest'];
 
             $scope.select2Options = {
                 'multiple': true,
@@ -37,7 +37,7 @@ angular.module('ek.controllers', [])
             };
 
             $scope.showType = function(card) {
-                return $scope.Filter.indexOf(card.type) > -1
+                return $scope.Filter.indexOf(card.type) > -1 || $scope.Filter.length == 0;
             };
 
             $scope.isOn = function(type) {
